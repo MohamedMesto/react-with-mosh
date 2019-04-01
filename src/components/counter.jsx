@@ -11,12 +11,12 @@ class Counter extends Component{
         fontSize: 20
     }
     
-    constructor(){
-        super();
-        this.handlerIncrement = this.handlerIncrement.bind(this);
-    }
+    // constructor(){
+    //     super();
+    //     this.handlerIncrement = this.handlerIncrement.bind(this);
+    // }
     
-    handlerIncrement(){
+    handlerIncrement = () => {  // Changing the function to a arrow function, 'this' is inherited
         console.log("Increment !!!", this);
     }
     
