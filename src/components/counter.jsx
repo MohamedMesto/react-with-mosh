@@ -18,11 +18,17 @@ class Counter extends Component{
               <span style={ this.style } className={this.getBadgeClasses()}>{this.formatCount()}</span>  {/* apply class-name and style with an object */}
               <button style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
               <img src={this.state.imageUrl} alt=""/>
+              <div>{ this.state.tags.length === 0 && 'Please create a tag' }</div>
               <ul>
-                { this.state.tags.map( tag => <li key={tag}>{tag}</li>) }
+                { this.renderTags() }
               </ul>
             </React.Fragment>
         );
+    }
+    
+    renderTags(){
+        if(this.state.tags.length === 0) return <p>There are no tags</p>
+        return this.state.tags.map( tag => <li key={tag}>{tag}</li>)
     }
     
     getBadgeClasses(){
