@@ -11,12 +11,16 @@ class Counter extends Component{
         fontSize: 20
     }
     
+    handlerIncrement(){
+        console.log("Increment !!!");
+    }
+    
     render(){
 
         return(
             <React.Fragment>
               <span style={ this.style } className={this.getBadgeClasses()}>{this.formatCount()}</span>  {/* apply class-name and style with an object */}
-              <button style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
+              <button onClick={this.handlerIncrement} style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
               <img src={this.state.imageUrl} alt=""/>
               <div>{ this.state.tags.length === 0 && 'Please create a tag' }</div>
               <ul>
