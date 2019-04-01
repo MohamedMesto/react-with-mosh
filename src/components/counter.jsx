@@ -19,7 +19,7 @@ class Counter extends Component{
               <button style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
               <img src={this.state.imageUrl} alt=""/>
               <ul>
-                { this.state.tags.map( tag => <li>{tag}</li>) }
+                { this.state.tags.map( tag => <li key={tag}>{tag}</li>) }
               </ul>
             </React.Fragment>
         );
