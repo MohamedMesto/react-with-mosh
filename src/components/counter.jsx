@@ -16,8 +16,8 @@ class Counter extends Component{
     //     this.handlerIncrement = this.handlerIncrement.bind(this);
     // }
     
-    handlerIncrement = () => {  // Changing the function to a arrow function, 'this' is inherited
-        console.log("Increment !!!", this);
+    handlerIncrement = (id) => {  // Changing the function to a arrow function, 'this' is inherited
+        console.log("Increment !!!", id);
         this.setState({ count: this.state.count + 1});
 
     }
@@ -27,7 +27,7 @@ class Counter extends Component{
         return(
             <React.Fragment>
               <span style={ this.style } className={this.getBadgeClasses()}>{this.formatCount()}</span>  {/* apply class-name and style with an object */}
-              <button onClick={this.handlerIncrement} style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
+              <button onClick={ () => this.handlerIncrement({ id: 2 }) } style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
               <img src={this.state.imageUrl} alt=""/>
               <div>{ this.state.tags.length === 0 && 'Please create a tag' }</div>
               <ul>
