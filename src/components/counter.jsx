@@ -18,6 +18,8 @@ class Counter extends Component{
     
     handlerIncrement = () => {  // Changing the function to a arrow function, 'this' is inherited
         console.log("Increment !!!", this);
+        this.setState({ count: this.state.count + 1});
+
     }
     
     render(){
