@@ -25,7 +25,7 @@ class Counter extends Component{
     render(){
 
         return(
-            <React.Fragment>
+            <div>
               <span style={ this.style } className={this.getBadgeClasses()}>{this.formatCount()}</span>  {/* apply class-name and style with an object */}
               <button onClick={ () => this.handlerIncrement({ id: 2 }) } style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
               <img src={this.state.imageUrl} alt=""/>
@@ -33,7 +33,7 @@ class Counter extends Component{
               <ul>
                 { this.renderTags() }
               </ul>
-            </React.Fragment>
+            </div>
         );
     }
     
