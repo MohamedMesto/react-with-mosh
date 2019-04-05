@@ -20,7 +20,7 @@ class Counters extends Component{
                       id={counter.id}
                       value={counter.value}
                       selected={true}>
-                        <h4>another title</h4>
+                        <h4>Counter #{counter.id}, initial value: {counter.value}</h4>
                     </Counter>
                 )}
             </div>
