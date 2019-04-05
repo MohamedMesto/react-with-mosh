@@ -19,8 +19,9 @@ class Counters extends Component{
                       key={counter.id} 
                       id={counter.id}
                       value={counter.value}
-                      selected={true}
-                    />
+                      selected={true}>
+                        <h4>another title</h4>
+                    </Counter>
                 )}
             </div>
         );

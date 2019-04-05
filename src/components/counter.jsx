@@ -26,6 +26,7 @@ class Counter extends Component{
         console.log(this.props);
         return(
             <div>
+              {this.props.children}
               <span style={ this.style } className={this.getBadgeClasses()}>{this.formatCount()}</span>  {/* apply class-name and style with an object */}
               <button onClick={ () => this.handlerIncrement({ id: 2 }) } style={ { fontSize: 30} } className="btn btn-secundary btn-sm">Increment</button>  {/* apply class-name and style inline */}
               <img src={this.state.imageUrl} alt=""/>
