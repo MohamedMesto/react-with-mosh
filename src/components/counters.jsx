@@ -11,6 +11,14 @@ class Counters extends Component{
             ]
     };
     
+    handleIncrement = counter => {
+        const counters = [...this.state.counters];
+        const index = counters.indexOf(counter);
+        counters[index] = {...counter};
+        counters[index].value++;
+        this.setState({ counters });
+    }
+    
     handleDelete = (counterId) => {
         console.log("Event handler called", counterId);
         const counters = this.state.counters.filter( count => count.id !== counterId);
@@ -37,6 +45,7 @@ class Counters extends Component{
                       key={counter.id} 
                       id={counter.id}
                       counter={counter}
+                      onIncrement={this.handleIncrement}
                       onDelete={this.handleDelete}>
                         <h4>Counter #{counter.id}, initial value: {counter.value}</h4>
                     </Counter>
