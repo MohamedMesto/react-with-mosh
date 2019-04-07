@@ -6,6 +6,7 @@ import './App.css';
 
 class App extends Component {
   state = {
+    game: new GF(),
       counters: [
               { id: 1, value: 3 },
               { id: 2, value: 0 },
@@ -38,14 +39,20 @@ class App extends Component {
   };
   
   handleStart = () => {
-    var game = new GF();
-    game.start();
+    this.state.game.start();
+  };
+  
+  handleStop = () => {
+    this.state.game.stop();
   };
   
   render() {
     return (
       <React.Fragment>
-        <NavBar onStart={this.handleStart} totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
+        <NavBar 
+          onStart={this.handleStart} 
+          onStop={this.handleStop}
+          totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
         <main className="container">
           <Counters 
           counters={this.state.counters}

@@ -1,9 +1,10 @@
+var requestID;
 var GF = () =>{
     var mainLoop = () => {
       // main function, called each frame  
       let element = document.getElementById('game');
       element.innerHTML = Math.random();
-      requestAnimationFrame(mainLoop);
+      requestID = requestAnimationFrame(mainLoop);
     };
     
     var start = () => {
@@ -11,8 +12,16 @@ var GF = () =>{
         requestAnimationFrame(mainLoop);
     };
     
+    var stop = () => {
+        console.log("stopping game");
+        let element = document.getElementById('game');
+        element.innerHTML = "Start!!";
+        window.cancelAnimationFrame(requestID);
+    };
+    
     return { 
-      start: start  
+      start: start,
+      stop: stop,
     };
 }
 
