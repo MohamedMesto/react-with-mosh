@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './components/navBar'
 import Counters from './components/counters'
+import GF from './game/game'
 import './App.css';
 
 class App extends Component {
@@ -34,12 +35,17 @@ class App extends Component {
          return counter;
       });
       this.setState({ counters });
-  }
+  };
+  
+  handleStart = () => {
+    var game = new GF();
+    game.start();
+  };
   
   render() {
     return (
       <React.Fragment>
-        <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
+        <NavBar onStart={this.handleStart} totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
         <main className="container">
           <Counters 
           counters={this.state.counters}
